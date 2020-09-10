@@ -14,7 +14,7 @@ include $(INCLUDE_DIR)/package.mk
 
 define Package/subutai-router/Default
 	SECTION:=Subutai
-	CATEGORY:=Base
+	CATEGORY:=Subutai
 endef
 
 define Package/subutai-router/Default/description
