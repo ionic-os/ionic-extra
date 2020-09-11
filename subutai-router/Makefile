@@ -12,28 +12,26 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/subutai-router-$(PKG_VERSION)
 
 include $(INCLUDE_DIR)/package.mk
 
-define Package/subutai-router/Default
-	SECTION:=Subutai
-	CATEGORY:=Subutai
-endef
-
-define Package/subutai-router/Default/description
-  Meta package for Subutai Router installation.
-endef
-
 define Package/subutai-router
-$(call Package/subutai-router/Default)
-	TITLE:=Subutai Router
+  SECTION:=Subutai
+  CATEGORY:=Subutai
+  TITLE:=Subutai Router
+  DEPENDS:=+base-files
 endef
 
 define Package/subutai-router/description
-$(call Package/subutai-router/Default/description)
+  Meta package for Subutai Router installation.
+endef
+
+define Build/Compile
+        # NOOP
 endef
 
 define Package/subutai-router/install
-	$(INSTALL_DIR) $(1)/usr/sbin
+	$(INSTALL_DIR) $(1)/etc
+	$(INSTALL_CONF) ./files/etc/banner $(1)/etc
 endef
 
 $(eval $(call BuildPackage,subutai-router))
 
-# vim: ts=2 et nowrap autoindent
+# vim: ts=4 nowrap autoindent
